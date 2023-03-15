@@ -1,0 +1,17 @@
+-
+  const titleVal = pageTitle.replace(/'/ig,"\\'")
+
+  let isHighlightShrink
+  if (theme.highlight_shrink == 'none') isHighlightShrink = 'undefined'
+  else if (page.highlight_shrink === true || page.highlight_shrink === false) isHighlightShrink = page.highlight_shrink
+  else isHighlightShrink = theme.highlight_shrink
+-
+
+script#config-diff.
+  var GLOBAL_CONFIG_SITE = {
+    title: '!{titleVal}',
+    isPost: !{is_post()},
+    isHome: !{is_home()},
+    isHighlightShrink: !{isHighlightShrink},
+    postUpdate: '!{full_date(page.updated)}'
+  }

@@ -1,0 +1,12 @@
+if theme.open_graph_meta.enable
+  -
+    const coverVal = page.cover_type === 'img' ? page.cover : theme.avatar
+    let ogOption = Object.assign({
+      type: is_post() ? 'article' : 'website',
+      image: coverVal ? full_url_for(coverVal) : ''
+    }, theme.open_graph_meta.option)
+  -
+  != open_graph(ogOption)
+else
+  meta(name="description" content=page_description())
+
