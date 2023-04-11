@@ -1,6 +1,7 @@
 title: Excerpts
 date: 2013-12-25 00:23:23
-tags:
+tags: 的
+categories: 随笔
 ---
 
 The following contents should be invisible in home/archive page.

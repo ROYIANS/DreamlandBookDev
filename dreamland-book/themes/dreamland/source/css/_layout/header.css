@@ -1,0 +1,15 @@
+.dreamland-header {
+    @apply book-page;
+    @apply sticky inset-x-0 top-0 z-1 mb-8;
+    @apply text-center;
+}
+
+.dreamland-header__title {
+    @apply text-2xl relative leading-8;
+    @apply before:absolute before:block before:w-2 before:h-2 before:top-0 before:-right-2;
+    @apply before:rounded before:border-red-700 before:border-2 before:border-solid;
+}
+
+.dreamland-header__subtitle {
+    @apply text-base m-auto absolute left-0 right-0 opacity-20 leading-8;
+}

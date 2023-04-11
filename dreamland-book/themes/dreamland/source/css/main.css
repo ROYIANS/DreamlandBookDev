@@ -1,0 +1,7 @@
+@import "var.css";
+@import "lib/heti.css";
+@import "_layout/main.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

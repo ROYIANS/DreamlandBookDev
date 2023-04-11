@@ -1,0 +1,14 @@
+extends includes/layout.pug
+
+block content
+  #page
+    if top_img === false
+      h1.page-title= page.title
+
+    case page.type
+      default
+        include includes/page/default-page.pug
+
+    if page.comments !== false && theme.comments && theme.comments.use
+      - var commentsJsLoad = true
+      !=partial('includes/third-party/comments/index', {}, {cache: true})

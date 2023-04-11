@@ -1,0 +1,25 @@
+doctype html
+html(lang=config.language class=theme.display_mode)
+    head
+        include ./head.pug
+    body
+        // 背景
+        if theme.background
+            #dreamland-book-background(data-background=theme.background)
+
+        // 头
+        !=partial('includes/header/header', {}, {cache: true})
+
+        // 分类栏
+        !=partial('includes/bookmark/bookmark', {}, {cache: true})
+
+        // 主界面
+        main.dreamland-main
+            block content
+
+        // 头
+        !=partial('includes/footer/footer', {}, {cache: true})
+
+        // js
+        include ./additional-js.pug
+        !=partial('includes/third-party/search/index', {}, { cache: true })

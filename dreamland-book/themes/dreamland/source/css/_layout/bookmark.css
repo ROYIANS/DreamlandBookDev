@@ -1,0 +1,47 @@
+.dreamland-header__bookmark {
+    @apply mx-auto w-full sticky hidden top-20 h-0;
+    @apply lg:w-8/12 lg:block;
+}
+
+.dreamland-header__bookmark__container {
+    @apply relative p-4;
+}
+
+.dreamland-header__bookmark__main {
+    @apply heti--serif;
+    @apply absolute overflow-hidden top-0;
+}
+
+.dreamland-header__bookmark__left {
+    @apply dreamland-header__bookmark__main;
+    @apply right-full;
+}
+
+.dreamland-header__bookmark__right {
+    @apply dreamland-header__bookmark__main;
+    @apply left-full;
+}
+
+.dreamland-header__bookmark__tab {
+    @apply bg-page-bg w-6 leading-6 px-1 py-2 text-center cursor-pointer rounded-r transition-transform list-none;
+    @apply dark:bg-page-bg-dark;
+    @apply hover:shadow-none hover:w-8;
+    @apply hover:border-l-4 hover:border-solid hover:border-[var(--random-color)];
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
+}
+
+.dreamland-header__bookmark__tab + .dreamland-header__bookmark__tab {
+    @apply mt-1;
+}
+
+.dreamland-header__bookmark-tab-name {
+    /**/
+}
+
+.dreamland-header__bookmark-tab-count {
+    @apply heti--sans;
+    @apply text-xs bg-[var(--random-color)] p-0 mt-0.5 rounded-full w-4 h-4 text-center leading-4;
+    color: var(--text-color);
+    writing-mode: initial;
+    zoom: 0.8;
+}

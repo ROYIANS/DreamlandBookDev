@@ -1,0 +1,4 @@
+.dreamland-footer {
+    @apply book-page;
+    @apply text-sm text-center mt-8;
+}

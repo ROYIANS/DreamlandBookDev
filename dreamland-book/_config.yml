@@ -4,9 +4,9 @@
 
 # Site
 title: 小梦岛
-subtitle: '福建'
+subtitle: '开发'
 description: '哈哈哈'
-keywords: '福建,预算管理一体化'
+keywords: '开发'
 author: ROYIANS
 language: zh-CN
 timezone: ''
@@ -97,7 +97,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: dreamland-book
+theme: dreamland
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
