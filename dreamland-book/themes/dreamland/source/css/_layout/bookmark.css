@@ -8,8 +8,8 @@
 }
 
 .dreamland-header__bookmark__main {
-    @apply heti--serif;
-    @apply absolute overflow-hidden top-0;
+    @apply heti--sans;
+    @apply absolute overflow-hidden top-0 text-sm;
 }
 
 .dreamland-header__bookmark__left {

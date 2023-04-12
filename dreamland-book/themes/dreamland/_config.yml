@@ -28,7 +28,7 @@ open_graph_meta:
 avatar: https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png
 
 # Favicon（網站圖標）
-favicon: /img/favicon.png
+favicon: /images/royians/logo.png
 
 site_verification:
  - name: google-site-verification
@@ -108,8 +108,7 @@ blog_title_font:
 
 # 主题色
 theme_color:
-  enable: true
-  main: "#49B1F5"
+  main: "#009688"
   paginator: "#00c4b6"
   button_hover: "#FF7242"
   text_selection: "#00c4b6"
@@ -312,12 +311,11 @@ CDN:
  internal_provider: local
 
  # The CDN provider of third party scripts (第三方 js 的 cdn 配置)
- # option: local/jsdelivr/unpkg/cdnjs/custom
- # when set it to local, you need to install hexo-butterfly-extjs
+ # option: jsdelivr/unpkg/cdnjs/custom
  third_party_provider: jsdelivr
 
  # Add version number to url, true or false
- version: false
+ version: true
 
  # Custom format
  # For example: https://cdn.staticfile.org/${cdnjs_name}/${version}/${min_cdnjs_file}

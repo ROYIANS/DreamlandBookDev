@@ -1,5 +1,16 @@
 extends includes/layout.pug
 
 block content
-    section
-        text(onclick="dlf.toggleDarkMode()")="你好"
+    .today="TODAY."
+    .layer
+        svg
+            path#curve(fill = 'transparent', d='M 75 75 m -50, 0 a 50, 50 0 1, 1 100, 0 a 50, 50 0 1, 1 -100, 0')
+            text(textLength='310')
+                textPath(xlink:href='#curve')="*ROYIANS*ROYIANS"
+    section.slider
+        .track-full
+            .track-active
+        .track-number(style="--month: '/04'")="12"
+    .grid-background
+        .grid-background-border-horizontal
+        .grid-background-border-vertical

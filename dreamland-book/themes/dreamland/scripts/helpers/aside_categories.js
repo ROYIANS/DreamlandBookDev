@@ -61,6 +61,9 @@ hexo.extend.helper.register('aside_categories', function (categories, options) {
         <li class="dreamland-header__bookmark__tab heti--vertical" style="--random-color: ${hexColor.hex}; ${hexColor.fontColor ? `--text-color: ${hexColor.fontColor};` : '--text-color: #fff;'}">
           <a href="${categoryDir}/" title="${buttonLabel}">
             <span class="dreamland-header__bookmark-tab-name">${buttonLabel}</span>
+            <span class="dreamland-header__bookmark-tab-count">
+              <i class="ri-arrow-right-double-line"></i>
+            </span>
           </a>
         </li>
     `

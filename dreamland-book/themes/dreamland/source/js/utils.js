@@ -1,13 +1,34 @@
 const dlf = {
-  toggleDarkMode: () => {
+  toggleDarkMode: async () => {
     let classList = document.documentElement.classList
     if (classList.contains('dark')) {
       document.documentElement.classList.remove('dark')
-      window.saveToLocal.set(VAR_CONSTANT.STORE.DARK_MODE, 'dark')
+      window.saveToLocal.set(VAR_CONSTANT.STORE.DARK_MODE, 'light')
+      await dlf.toast("已切换为日间模式", "default", "ri-sun-fill")
     } else {
       document.documentElement.classList.add('dark')
-      window.saveToLocal.set(VAR_CONSTANT.STORE.DARK_MODE, 'light')
+      window.saveToLocal.set(VAR_CONSTANT.STORE.DARK_MODE, 'dark')
+      await dlf.toast("已切换为夜间模式", "default", "ri-moon-clear-fill")
     }
+  },
+
+  toast: (message, status = 'default', icon = 'ri-notification-3-fill') => {
+    return new Promise((resolve) => {
+      let toast = document.getElementById("toast")
+      let toastMessage = document.getElementById("toast-message")
+      let toastIcon = document.getElementById("toast-icon")
+      toastMessage.innerText = message
+      if (icon === 'logo') {
+        toastIcon.innerHTML = `<img alt="logo" src="${GLOBAL_CONFIG.logo}" />`
+      } else {
+        toastIcon.innerHTML = `<i class="${icon}"></i>`
+      }
+      toast.classList.add("show", status);
+      setTimeout(function () {
+        toast.classList.remove("show", status)
+        resolve()
+      }, 4900);
+    })
   },
 
   debounce: function (func, wait, immediate) {
@@ -17,30 +38,40 @@ const dlf = {
       const args = arguments
       const later = function () {
         timeout = null
-        if (!immediate) func.apply(context, args)
+        if (!immediate) {
+          func.apply(context, args)
+        }
       }
       const callNow = immediate && !timeout
       clearTimeout(timeout)
       timeout = setTimeout(later, wait)
-      if (callNow) func.apply(context, args)
+      if (callNow) {
+        func.apply(context, args)
+      }
     }
   },
 
   throttle: function (func, wait, options) {
     let timeout, context, args
     let previous = 0
-    if (!options) options = {}
+    if (!options) {
+      options = {}
+    }
 
     const later = function () {
       previous = options.leading === false ? 0 : new Date().getTime()
       timeout = null
       func.apply(context, args)
-      if (!timeout) context = args = null
+      if (!timeout) {
+        context = args = null
+      }
     }
 
     const throttled = function () {
       const now = new Date().getTime()
-      if (!previous && options.leading === false) previous = now
+      if (!previous && options.leading === false) {
+        previous = now
+      }
       const remaining = wait - (now - previous)
       context = this
       args = arguments
@@ -51,7 +82,9 @@ const dlf = {
         }
         previous = now
         func.apply(context, args)
-        if (!timeout) context = args = null
+        if (!timeout) {
+          context = args = null
+        }
       } else if (!timeout && options.trailing !== false) {
         timeout = setTimeout(later, remaining)
       }
@@ -134,7 +167,9 @@ const dlf = {
   scrollToDest: (pos, time = 500) => {
     const currentPos = window.pageYOffset
     const isNavFixed = document.getElementById('page-header').classList.contains('fixed')
-    if (currentPos > pos || isNavFixed) pos = pos - 70
+    if (currentPos > pos || isNavFixed) {
+      pos = pos - 70
+    }
 
     if ('scrollBehavior' in document.documentElement.style) {
       window.scrollTo({
@@ -146,7 +181,7 @@ const dlf = {
 
     let start = null
     pos = +pos
-    window.requestAnimationFrame(function step (currentTime) {
+    window.requestAnimationFrame(function step(currentTime) {
       start = !start ? currentTime : start
       const progress = currentTime - start
       if (currentPos < pos) {
@@ -168,7 +203,7 @@ const dlf = {
   },
 
   animateOut: (ele, text) => {
-    ele.addEventListener('animationend', function f () {
+    ele.addEventListener('animationend', function f() {
       ele.style.display = ''
       ele.style.animation = ''
       ele.removeEventListener('animationend', f)
@@ -178,7 +213,9 @@ const dlf = {
 
   getParents: (elem, selector) => {
     for (; elem && elem !== document; elem = elem.parentNode) {
-      if (elem.matches(selector)) return elem
+      if (elem.matches(selector)) {
+        return elem
+      }
     }
     return null
   },
@@ -246,7 +283,12 @@ const dlf = {
         if (i.parentNode.tagName !== 'A') {
           const dataSrc = i.dataset.lazySrc || i.src
           const dataCaption = i.title || i.alt || ''
-          dlf.wrap(i, 'a', { href: dataSrc, 'data-fancybox': 'gallery', 'data-caption': dataCaption, 'data-thumb': dataSrc })
+          dlf.wrap(i, 'a', {
+            href: dataSrc,
+            'data-fancybox': 'gallery',
+            'data-caption': dataCaption,
+            'data-thumb': dataSrc
+          })
         }
       })
 
@@ -299,13 +341,20 @@ const dlf = {
       }
     }
 
-    if (Array.from(selector).length === 0) runJustifiedGallery(selector)
-    else selector.forEach(i => { runJustifiedGallery(i) })
+    if (Array.from(selector).length === 0) {
+      runJustifiedGallery(selector)
+    } else {
+      selector.forEach(i => {
+        runJustifiedGallery(i)
+      })
+    }
   },
 
   updateAnchor: (anchor) => {
     if (anchor !== window.location.hash) {
-      if (!anchor) anchor = location.pathname
+      if (!anchor) {
+        anchor = location.pathname
+      }
       const title = GLOBAL_CONFIG_SITE.title
       window.history.replaceState({
         url: location.href,

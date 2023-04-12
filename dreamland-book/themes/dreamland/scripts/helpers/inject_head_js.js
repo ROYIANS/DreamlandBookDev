@@ -9,13 +9,13 @@ hexo.extend.helper.register('inject_head_js', function () {
 
   const localStore = `
     win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
+      set: function setWithExpiry(key, value, ttl = 99999) {
         if (ttl === 0) return
         const now = new Date()
         const expiryDay = ttl * 86400000
         const item = {
           value: value,
-          expiry: ttl === undefined ? Infinity : now.getTime() + expiryDay,
+          expiry: now.getTime() + expiryDay,
         }
         localStorage.setItem(key, JSON.stringify(item))
       },

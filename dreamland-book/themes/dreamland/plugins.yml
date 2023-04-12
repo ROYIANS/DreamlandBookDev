@@ -135,7 +135,7 @@ medium_zoom:
 remixicon:
   name: 'remixicon'
   file: fonts/remixicon.min.css
-  version: 2.5.0
+  version: 3.1.1
 flickr_justified_gallery_js:
   name: flickr-justified-gallery
   file: dist/fjGallery.min.js

@@ -5,6 +5,14 @@
   if (theme.highlight_shrink == 'none') isHighlightShrink = 'undefined'
   else if (page.highlight_shrink === true || page.highlight_shrink === false) isHighlightShrink = page.highlight_shrink
   else isHighlightShrink = theme.highlight_shrink
+
+  const themeColorsKey = theme.theme_color && Object.keys(theme.theme_color)
+  let themeColors = ''
+  if (themeColorsKey)
+    themeColors = themeColorsKey.map(key => {
+      return `--theme-${key}: ${theme.theme_color[key]};`
+    }).join('\n')
+    themeColors = `:root{${themeColors}}`
 -
 
 script#config-diff.
@@ -15,3 +23,7 @@ script#config-diff.
     isHighlightShrink: !{isHighlightShrink},
     postUpdate: '!{full_date(page.updated)}'
   }
+
+if theme.theme_color
+  style#theme-color=themeColors
+  !=theme_main_color_set()
