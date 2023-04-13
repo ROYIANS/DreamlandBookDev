@@ -6,6 +6,7 @@
 site:
   title: 小梦岛
   subtitle: Live a Vidorra Life
+  description: 当你可以跟一个人不说话，分享片刻寂静，且不会觉得尴尬，那一刻你就会明白，你遇到了对的人。
 
 # 右侧书签分类设置
 categories:
@@ -25,7 +26,7 @@ open_graph_meta:
    fb_app_id: '123'
 
 # Avatar (頭像)
-avatar: https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png
+avatar: /images/royians/avatar.jpg
 
 # Favicon（網站圖標）
 favicon: /images/royians/logo.png

@@ -1,16 +1,48 @@
 extends includes/layout.pug
 
 block content
-    .today="TODAY."
-    .layer
-        svg
-            path#curve(fill = 'transparent', d='M 75 75 m -50, 0 a 50, 50 0 1, 1 100, 0 a 50, 50 0 1, 1 -100, 0')
-            text(textLength='310')
-                textPath(xlink:href='#curve')="*ROYIANS*ROYIANS"
+    section.index_page
+        .layer
+            #today.heti--serif="TODAY."
+            .item
+            .say_img
+                #say_img_content(style="--say-img-url: url(/img/default_cover.png);")
+            .item
+        .layer
+            .say_text
+                #say_text_content=theme.site.description
+            .recommend_list
+                .recommend_text="RECENT."
+                .recommend_posts
+                    #post_list
+                        ul
+                            li="[荐] 博文1"
+                            li="[荐] 博文2"
+                            li="[荐] 博文3"
+                            li="[荐] 博文4"
+                            li="[荐] 博文5"
+                        ul
+                            li="[新] 博文6"
+                            li="[新] 博文7"
+                            li="[新] 博文8"
+                            li="[新] 博文9"
+                            li="[新] 博文10"
+                .recommend_text--vertical.heti--serif.heti--vertical="RECENT."
     section.slider
         .track-full
             .track-active
-        .track-number(style="--month: '/04'")="12"
+        .track-number(style="--week: '/23'")="M"
     .grid-background
         .grid-background-border-horizontal
         .grid-background-border-vertical
+    - var siteAvatar = theme.avatar
+    svg#mood-avatar(width="8.5rem" height="8.5rem", viewBox="0 0 150 150", onclick="dlf.toggleDarkMode()")
+        defs
+            path#curve(fill = 'transparent', d='M 15,75 a 60, 60 0 1, 1 120, 0 a 60, 60 0 1, 1 -120, 0')
+            rect#rect(x="25", y="25", width="100", height="100", rx="100%")
+            clipPath#clip
+                use(xlink:href="#rect")
+        use(xlink:href="#rect", stroke-width="2", stroke="var(--main-text)")
+        text(fill="var(--main-text)", textLength="377")
+            textPath#moodText(xlink:href='#curve')="*MOOD*MOOD*MOOD*MOOD*MOOD*MOOD"
+        image#moodImage(xlink:href=siteAvatar, x="25", y="25", height="100", width="100", clip-path="url(#clip)")

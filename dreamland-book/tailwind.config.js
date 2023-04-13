@@ -10,12 +10,16 @@ module.exports = {
           dark: '#222222'
         },
         'page-bg': {
-          DEFAULT: '#ffffff',
+          DEFAULT: '#fef8ea',
           dark: '#161616'
         },
         'main-text': {
           DEFAULT: '#444444',
           dark: '#ffffff'
+        },
+        'border-color': {
+          DEFAULT: '#eee',
+          dark: '#262626'
         }
       },
       minHeight: {
