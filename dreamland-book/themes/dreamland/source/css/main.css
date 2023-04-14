@@ -11,6 +11,13 @@ html, body {
 }
 
 body {
-    @apply bg-background text-main-text select-none;
+    @apply bg-background text-main-text;
     @apply dark:bg-background-dark dark:text-main-text-dark;
+}
+
+.animation_link {
+    @apply no-underline space-x-1 inline-block relative;
+}
+
+.animation_link:hover {
 }

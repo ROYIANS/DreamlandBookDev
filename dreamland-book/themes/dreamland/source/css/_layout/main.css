@@ -105,22 +105,80 @@
 }
 
 .recommend_list {
-    @apply bg-[#ffffff] p-8 rounded mt-8;
+    @apply bg-[#ffffff] p-8 rounded mt-8 relative;
     @apply md:w-5/6 md:h-4/5 md:mt-28 md:ml-16;
-    @apply dark:bg-[#2F2F2F];
+    @apply dark:bg-[#111111];
+    box-shadow: rgba(0, 0, 0, 0.05) 0 1px 2px 0;
 }
 
-#post_list ul {
-    @apply p-2;
+.recommend_list::after {
+    content: "";
+    width: 55%;
+    height: 20px;
+    top: -10px;
+    z-index: 5;
+    left: 25%;
+    transform: rotate(-2deg);
+    position: absolute;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    background: rgba(220, 220, 220, 0.4);
 }
 
-#post_list ul + ul {
-    @apply border-t border-dashed border-border-color-dark;
-    @apply dark:border-border-color;
+.dark .recommend_list::after {
+    background: rgba(45, 45, 45, 0.5);
 }
 
-#post_list li {
-    @apply py-1;
+.post_list ul {
+    @apply py-2;
+}
+
+.post_list li {
+    @apply py-2 relative z-0 flex items-center justify-between;
+}
+
+.post_list li + li {
+    @apply border-t border-dashed border-border-color;
+    @apply dark:border-border-color-dark;
+}
+
+.post_list .post_img {
+    @apply absolute top-0 left-0;
+}
+
+.post_list .post_index {
+    @apply heti--serif;
+    @apply text-2xl px-2;
+}
+
+.post_list a {
+    @apply w-full text-ellipsis overflow-hidden whitespace-nowrap;
+}
+
+.post_right {
+    @apply w-4/5;
+}
+
+.post_right .post_title {
+    @apply text-base w-full;
+}
+
+.post_right .post_info {
+    @apply text-xs flex items-center;
+}
+
+.post_info span + span {
+    @apply before:content-["\00A0•\00A0"] before:text-main-text;
+    @apply before:opacity-70;
+    @apply before:dark:text-main-text-dark;
+}
+
+.post_info .post_category {
+    @apply bg-border-color px-1.5 rounded-sm flex;
+    @apply dark:bg-border-color-dark;
+}
+
+.post_info .post_date {
+    @apply opacity-50;
 }
 
 .recommend_text {

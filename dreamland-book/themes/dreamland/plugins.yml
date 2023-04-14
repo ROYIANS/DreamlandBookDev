@@ -199,3 +199,7 @@ docsearch_css:
   other_name: docsearch-css
   file: dist/style.css
   version: 3.3.3
+css_doodle:
+  name: css-doodle
+  file: css-doodle.min.js
+  version: 0.34.8

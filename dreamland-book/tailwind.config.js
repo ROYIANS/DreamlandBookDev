@@ -10,7 +10,7 @@ module.exports = {
           dark: '#222222'
         },
         'page-bg': {
-          DEFAULT: '#fef8ea',
+          DEFAULT: '#fafafa',
           dark: '#161616'
         },
         'main-text': {

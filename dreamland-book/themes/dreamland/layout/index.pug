@@ -7,26 +7,63 @@ block content
             .item
             .say_img
                 #say_img_content(style="--say-img-url: url(/img/default_cover.png);")
-            .item
         .layer
             .say_text
                 #say_text_content=theme.site.description
             .recommend_list
-                .recommend_text="RECENT."
+                .recommend_text.heti--serif="RECENT."
                 .recommend_posts
-                    #post_list
+                    .post_list
                         ul
-                            li="[荐] 博文1"
-                            li="[荐] 博文2"
-                            li="[荐] 博文3"
-                            li="[荐] 博文4"
-                            li="[荐] 博文5"
-                        ul
-                            li="[新] 博文6"
-                            li="[新] 博文7"
-                            li="[新] 博文8"
-                            li="[新] 博文9"
-                            li="[新] 博文10"
+                            li(style=`--img-url: url(/images/default_cover.png)`)
+                                .post_index="01"
+                                .post_right
+                                    .post_title
+                                        !=animation_link("我们为什么仰望星空？", "/")
+                                    .post_info
+                                        span.post_category
+                                            !=animation_link("随想", "/")
+                                        span.post_author="ROYIANS"
+                                        span.post_date="04/13"
+                            li(style=`--img-url: url(/images/default_cover.png)`)
+                                .post_index="02"
+                                .post_right
+                                    .post_title
+                                        !=animation_link("春游记录", "/")
+                                    .post_info
+                                        span.post_category="随想"
+                                        span.post_author="ROYIANS"
+                                        span.post_date="04/13"
+                            li(style=`--img-url: url(/images/default_cover.png)`)
+                                .post_index="03"
+                                .post_right
+                                    .post_title
+                                        !=animation_link("我的文学末日", "/")
+                                    .post_info
+                                        span.post_category
+                                            !=animation_link("随想", "/")
+                                        span.post_author="ROYIANS"
+                                        span.post_date="04/13"
+                            li(style=`--img-url: url(/images/default_cover.png)`)
+                                .post_index="04"
+                                .post_right
+                                    .post_title
+                                        !=animation_link("抱拥这分钟", "/")
+                                    .post_info
+                                        span.post_category
+                                            !=animation_link("随想", "/")
+                                        span.post_author="ROYIANS"
+                                        span.post_date="04/13"
+                            li(style=`--img-url: url(/images/default_cover.png)`)
+                                .post_index="05"
+                                .post_right
+                                    .post_title
+                                        !=animation_link("访冬巷往事｜东京没有爱情故事", "/")
+                                    .post_info
+                                        span.post_category
+                                            !=animation_link("随想", "/")
+                                        span.post_author="ROYIANS"
+                                        span.post_date="04/13"
                 .recommend_text--vertical.heti--serif.heti--vertical="RECENT."
     section.slider
         .track-full
