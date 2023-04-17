@@ -17,7 +17,10 @@ html(lang=config.language class=theme.display_mode)
         main.dreamland-main
             block content
 
-        // 头
+        // sidebar
+        !=partial('includes/sidebar/sidebar', {}, { cache: true })
+
+        // 尾
         !=partial('includes/footer/footer', {}, {cache: true})
 
         // js
@@ -26,3 +29,21 @@ html(lang=config.language class=theme.display_mode)
 
         // toast
         !=partial('includes/toast/toast', {}, { cache: true })
+script.
+  const pageFlip = new St.PageFlip(
+    document.querySelector('.flip_page'),
+    {
+      width: 185,
+      height: 190,
+      size: 'stretch',
+      minWidth: 400,
+      maxWidth: 1200,
+      minHeight: 562.16,
+      maxHeight: 1687,
+      maxShadowOpacity: 0.2,
+      flippingTime: 500,
+      mobileScrollSupport: true,
+      useMouseEvents: false
+    }
+  );
+  pageFlip.loadFromHTML(document.querySelectorAll(".page"));

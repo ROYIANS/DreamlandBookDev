@@ -1,6 +1,6 @@
 #toast {
-    @apply invisible w-10 h-10 m-auto inset-x-0 z-2 fixed text-sm whitespace-nowrap rounded-sm text-center;
-    @apply bg-[var(--theme-primary-color)] text-white;
+    @apply invisible w-10 h-10 m-auto inset-x-0 z-2 fixed text-sm whitespace-nowrap rounded-full text-center;
+    @apply bg-black text-white;
     bottom: 30px;
 }
 
@@ -13,8 +13,8 @@
 }
 
 #toast #toast-message {
-    @apply text-sm overflow-hidden whitespace-nowrap h-full leading-10 p-0 m-0;
-    @apply bg-[var(--theme-primary-color-800)] text-black;
+    @apply text-sm overflow-hidden whitespace-nowrap h-full leading-10 p-0 m-0 rounded-r-full;
+    @apply bg-black text-white;
 }
 
 #toast.show {
@@ -86,7 +86,7 @@
         min-width: 350px;
     }
     to {
-        min-width: 50px;
+        min-width: 0;
     }
 }
 
@@ -95,7 +95,7 @@
         min-width: 350px;
     }
     to {
-        min-width: 50px;
+        min-width: 0;
     }
 }
 

@@ -1,6 +1,6 @@
 .dreamland-header {
     @apply book-page;
-    @apply sticky inset-x-0 top-0 z-1 mb-3;
+    @apply sticky inset-x-0 top-0 z-1 mb-3 p-5;
     @apply text-center;
 }
 

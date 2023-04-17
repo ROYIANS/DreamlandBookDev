@@ -1,0 +1,21 @@
+.side-bar {
+    @apply pointer-events-none h-10 my-5;
+    @apply md:absolute md:inset-0 md:h-full md:w-full md:m-0;
+}
+
+.pagination {
+    @apply w-full flex justify-between;
+    @apply md:fixed md:top-1/2 md:left-0;
+}
+
+.pagination .prev, .pagination .next {
+    @apply w-2 h-6 bg-page-bg p-5 rounded-lg mx-5 pointer-events-auto cursor-pointer flex items-center justify-center;
+    @apply hover:shadow-none;
+    @apply dark:bg-page-bg-dark;
+    box-shadow: rgba(0, 0, 0, 0.05) 0 0 0 1px;
+}
+
+.page_count {
+    @apply min-w-fit h-6 bg-page-bg p-5 rounded-full mx-5 flex items-center justify-center;
+    @apply md:hidden;
+}

@@ -1,21 +1,19 @@
 extends includes/layout.pug
 
 block content
-    section.index_page
-        .layer
-            #today.heti--serif="TODAY."
-            .item
+    section.flip_page.pBlock--mobile
+        .page
+            #today.heti--serif="MOTTO."
             .say_img
                 #say_img_content(style="--say-img-url: url(/img/default_cover.png);")
-        .layer
-            .say_text
-                #say_text_content=theme.site.description
+                #say_text=theme.site.description
+        .page
             .recommend_list
                 .recommend_text.heti--serif="RECENT."
                 .recommend_posts
                     .post_list
                         ul
-                            li(style=`--img-url: url(/images/default_cover.png)`)
+                            li(data-image="", data-content="我们为什么仰望星空")
                                 .post_index="01"
                                 .post_right
                                     .post_title
@@ -65,13 +63,68 @@ block content
                                         span.post_author="ROYIANS"
                                         span.post_date="04/13"
                 .recommend_text--vertical.heti--serif.heti--vertical="RECENT."
-    section.slider
-        .track-full
-            .track-active
-        .track-number(style="--week: '/23'")="M"
+        .page
+            #today.heti--serif="MOTTO-page2."
+            .say_img
+                #say_img_content(style="--say-img-url: url(/img/default_cover.png);")
+                #say_text=theme.site.description
+        .page
+            .recommend_list
+                .recommend_text.heti--serif="RECENT."
+                .recommend_posts
+                    .post_list
+                        ul
+                            li(data-image="", data-content="我们为什么仰望星空")
+                                .post_index="01"
+                                .post_right
+                                    .post_title
+                                        !=animation_link("我们为什么仰望星空？", "/")
+                                    .post_info
+                                        span.post_category
+                                            !=animation_link("随想", "/")
+                                        span.post_author="ROYIANS"
+                                        span.post_date="04/13"
+                            li(style=`--img-url: url(/images/default_cover.png)`)
+                                .post_index="02"
+                                .post_right
+                                    .post_title
+                                        !=animation_link("春游记录", "/")
+                                    .post_info
+                                        span.post_category="随想"
+                                        span.post_author="ROYIANS"
+                                        span.post_date="04/13"
+                            li(style=`--img-url: url(/images/default_cover.png)`)
+                                .post_index="03"
+                                .post_right
+                                    .post_title
+                                        !=animation_link("我的文学末日", "/")
+                                    .post_info
+                                        span.post_category
+                                            !=animation_link("随想", "/")
+                                        span.post_author="ROYIANS"
+                                        span.post_date="04/13"
+                            li(style=`--img-url: url(/images/default_cover.png)`)
+                                .post_index="04"
+                                .post_right
+                                    .post_title
+                                        !=animation_link("抱拥这分钟", "/")
+                                    .post_info
+                                        span.post_category
+                                            !=animation_link("随想", "/")
+                                        span.post_author="ROYIANS"
+                                        span.post_date="04/13"
+                            li(style=`--img-url: url(/images/default_cover.png)`)
+                                .post_index="05"
+                                .post_right
+                                    .post_title
+                                        !=animation_link("访冬巷往事｜东京没有爱情故事", "/")
+                                    .post_info
+                                        span.post_category
+                                            !=animation_link("随想", "/")
+                                        span.post_author="ROYIANS"
+                                        span.post_date="04/13"
+                .recommend_text--vertical.heti--serif.heti--vertical="REC搜索所ENT."
     .grid-background
-        .grid-background-border-horizontal
-        .grid-background-border-vertical
     - var siteAvatar = theme.avatar
     svg#mood-avatar(width="8.5rem" height="8.5rem", viewBox="0 0 150 150", onclick="dlf.toggleDarkMode()")
         defs

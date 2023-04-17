@@ -12,6 +12,29 @@ const dlf = {
     }
   },
 
+  doPageFlip(isPrev) {
+    if (pageFlip) {
+      const curPage = pageFlip.getCurrentPageIndex()
+      const orientationNum = pageFlip.getOrientation() === 'landscape' ? 2 : 1
+      const maxPage = pageFlip.getPageCount()
+      const element = document.getElementById('page_count')
+      element.innerHTML = `${+curPage + 1} / ${maxPage}`
+      if (isPrev) {
+        pageFlip.flipPrev()
+        if (+curPage === 0) {
+          dlf.toast('已经是第一页了', 'default', 'ri-information-fill')
+        }
+      } else {
+        pageFlip.flipNext()
+        if ((+curPage + 1) * orientationNum >= +maxPage) {
+          dlf.toast('已经是最后一页了', 'default', 'ri-information-fill')
+        }
+      }
+    } else {
+      dlf.toast('pageFlip对象不存在', 'default', 'ri-error-warning-fill')
+    }
+  },
+
   toast: (message, status = 'default', icon = 'ri-notification-3-fill') => {
     return new Promise((resolve) => {
       let toast = document.getElementById("toast")

@@ -3,18 +3,18 @@
 @import "footer.css";
 @import "bookmark.css";
 @import "toast.css";
+@import "sidebar.css";
 
 .book-page {
-    @apply mx-auto bg-page-bg w-full p-5 relative;
+    @apply mx-auto bg-page-bg w-full relative;
     @apply dark:bg-page-bg-dark;
-    @apply lg:w-8/12;
+    @apply lg:w-4/5;
     box-shadow: rgba(0, 0, 0, 0.05) 0 1px 2px 0;
 }
 
 .dreamland-main {
-    @apply book-page z-0 min-h-30;
+    @apply book-page z-0;
     @apply dark:bg-page-bg-dark;
-    @apply md:min-h-40;
     box-shadow:
                 /* The top layer shadow */
             0 1px 2px rgba(0,0,0,0.05),
@@ -24,37 +24,17 @@
             0 5px 1px -1px rgba(0,0,0,0.05);
 }
 
-.dreamland-main:has(.index_page) {
+.dreamland-main:has(.flip_page) {
     @apply overflow-hidden relative;
 }
 
-.grid-background {
-    @apply absolute inset-0 grid w-full h-full pointer-events-none -z-100;
-    grid-template-rows: 1fr 2.5fr 50px;
-    grid-template-columns: 2fr 1.27fr 1.73fr;
-}
-
-.grid-background-border-horizontal {
-    grid-row: 2;
-    grid-column: 1/-1;
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-}
-
-.grid-background-border-vertical {
-    grid-row: 1/-1;
-    grid-column: 2;
-    border-left: 1px solid var(--border-color);
-    border-right: 1px solid var(--border-color);
-}
-
-.index_page {
+.flip_page {
     @apply overflow-hidden w-full h-full;
 }
 
-.layer {
-    @apply grid grid-cols-1 relative;
-    @apply md:grid-cols-2 md:gap-4 md:absolute md:w-11/12 md:h-4/5;
+.page {
+    @apply w-full h-full p-5 relative bg-page-bg;
+    @apply dark:bg-page-bg-dark;
 }
 
 #today {
@@ -80,38 +60,10 @@
 }
 
 .say_img {
-    @apply relative px-5 pb-5 pt-16 flex items-center justify-center;
+    @apply grid grid-cols-1 w-4/5 m-auto pt-16;
 }
 
-#say_img_content {
-    @apply w-full bg-center bg-no-repeat bg-cover relative;
-    @apply md:h-auto;
-    @apply after:w-full after:h-full after:absolute after:left-2 after:top-2 after:bg-black after:-z-1;
-    aspect-ratio: 3/2;
-    background-color: var(--theme-primary-color-800);
-    background-image: var(--say-img-url);
-}
-
-.say_text {
-    @apply relative w-full h-full;
-}
-
-#say_text_content {
-    @apply p-5 bg-page-bg rounded-2xl mx-5 mt-5 relative px-10 max-w-full break-words text-base;
-    @apply dark:bg-page-bg-dark;
-    @apply md:-right-10 md:absolute md:top-1/4 md:ml-32 md:mr-0;
-    @apply before:content-["“"] before:absolute before:-top-2 before:-left-2 before:text-4xl;
-    @apply after:content-["”"] after:absolute after:-bottom-6 after:-right-2 after:text-4xl;
-}
-
-.recommend_list {
-    @apply bg-[#ffffff] p-8 rounded mt-8 relative;
-    @apply md:w-5/6 md:h-4/5 md:mt-28 md:ml-16;
-    @apply dark:bg-[#111111];
-    box-shadow: rgba(0, 0, 0, 0.05) 0 1px 2px 0;
-}
-
-.recommend_list::after {
+#say_img_content::after {
     content: "";
     width: 55%;
     height: 20px;
@@ -124,8 +76,25 @@
     background: rgba(220, 220, 220, 0.4);
 }
 
-.dark .recommend_list::after {
+.dark #say_img_content::after {
     background: rgba(45, 45, 45, 0.5);
+}
+
+#say_img_content {
+    @apply bg-center bg-no-repeat bg-cover relative;
+    @apply md:h-auto;
+    aspect-ratio: 3/2;
+    background-color: var(--theme-primary-color-800);
+    background-image: var(--say-img-url);
+}
+
+#say_text_content {
+    @apply w-full overflow-hidden break-words text-center;
+}
+
+.recommend_list {
+    @apply p-8 rounded mt-8 relative;
+    @apply md:w-5/6 md:h-4/5 md:mt-28 md:ml-16;
 }
 
 .post_list ul {
@@ -226,5 +195,17 @@
 
     to {
         transform: rotate(-360deg);
+    }
+}
+
+@keyframes bob_and_rotate {
+    0% {
+        transform:translateY(0);
+    }
+    50% {
+        transform:translateY(5px);
+    }
+    100% {
+        transform:translateY(0);
     }
 }

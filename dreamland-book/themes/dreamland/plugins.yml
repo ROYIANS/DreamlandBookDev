@@ -203,3 +203,7 @@ css_doodle:
   name: css-doodle
   file: css-doodle.min.js
   version: 0.34.8
+page_flip:
+  name: page-flip
+  file: dist/js/page-flip.browser.min.js
+  version: 2.0.7

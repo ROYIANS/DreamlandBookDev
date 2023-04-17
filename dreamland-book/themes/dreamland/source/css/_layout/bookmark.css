@@ -1,6 +1,6 @@
 .dreamland-header__bookmark {
     @apply mx-auto w-full sticky hidden top-20 h-0;
-    @apply lg:w-8/12 lg:block;
+    @apply lg:w-4/5 lg:block;
 }
 
 .dreamland-header__bookmark__container {
